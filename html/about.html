@@ -16,13 +16,13 @@
         color: #333;
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        height: 100vh;
       }
       a {
         text-decoration: none;
         color: white;
       }
-      h1{
+      h1 {
         color: white;
       }
       .navbar {
@@ -55,8 +55,7 @@
         text-decoration: underline;
       }
       .about-section {
-        width: 90%;
-        max-width: 1000px;
+        width: 1000px;
         margin: 50px auto;
         padding: 30px;
         background: #fff;
@@ -89,10 +88,21 @@
         padding: 15px 0;
         font-size: 0.9rem;
       }
+      .info {
+        margin-top: 35px;
+        color: #555;
+      }
+      .info div a {
+        color: rgb(42, 230, 214);
+      }
+      .info div a:hover {
+        cursor: pointer;
+        color: rgb(4, 182, 182);
+      }
     </style>
   </head>
   <body>
-    <nav class="navbar">
+    <div class="navbar">
       <div class="logo">
         <img src="../img/logo.png" alt="Wanderly Logo" />
         <h1>WANDERLY</h1>
@@ -103,17 +113,33 @@
         <li><a href="./contact.html">Contact</a></li>
         <li><a href="./about.html">About</a></li>
       </ul>
-    </nav>
+    </div>
 
-    <section class="about-section">
+    <div class="about-section">
       <h2>About Wanderly</h2>
-      <p>Wanderly is a leading travel company dedicated to providing unforgettable travel experiences around the world. We specialize in curated tour packages, exclusive offers, and exceptional customer service.
-      Our mission is to make travel seamless, enjoyable, and memorable for all our customers. Whether you’re looking for adventure, relaxation, or cultural immersion, Wanderly has something for everyone.
-      If you have any complaints or need assistance, please visit our <a class="contact-link" href="./contact.html">Contact Page</a>.</p>
-    </section>
+      <p>
+        Wanderly is a leading travel company dedicated to providing
+        unforgettable travel experiences around the world. We specialize in
+        curated tour packages, exclusive offers, and exceptional customer
+        service. Our mission is to make travel seamless, enjoyable, and
+        memorable for all our customers. Whether you’re looking for adventure,
+        relaxation, or cultural immersion, Wanderly has something for everyone.
+        If you have any complaints or need assistance, please visit our
+        <a class="contact-link" href="./contact.html">Contact Page</a>.
+      </p>
+      <div class="info">
+        <div>Developed by Aditya Sajgotra</div>
+        <div>
+          Connect with me on
+          <a
+            href="https://www.linkedin.com/in/aditya-sajgotra-77a067296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            >LinkedIn</a
+          >
+          or <a href="https://github.com/Aditya-Sajgotra">github</a>
+        </div>
+      </div>
+    </div>
 
-    <footer class="footer">
-      &copy; 2025 Wanderly. All rights reserved.
-    </footer>
+    <div class="footer">©️ 2025 Wanderly. All rights reserved.</div>
   </body>
 </html>
