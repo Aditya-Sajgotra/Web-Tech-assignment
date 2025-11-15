@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search | Wanderly</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        font-family: Arial;
+      }
+      body {
+        background: linear-gradient(
+          to right,
+          rgb(252, 213, 71),
+          rgb(185, 45, 228)
+        );
+        color: white;
+      }
+      .color {
+        background-color: rgba(54, 19, 84, 0.6);
+        position: sticky;
+        top: 0;
+      }
+      .logo {
+        height: 10vh;
+        width: auto;
+        margin-right: 5px;
+      }
+      h1 {
+        color: white;
+      }
+      .agency-info {
+        display: flex;
+        align-items: center;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        height: 20vh;
+      }
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        padding: 0px 30px;
+        margin: 0px 10px;
+        display: flex;
+        align-items: center;
+        height: 8vh;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .nav-btns {
+        display: flex;
+        align-items: center;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+      }
+      .wrapper-nav {
+        width: 90vw;
+        margin: auto;
+      }
+      .searchbar input {
+        padding: 5px;
+        height: 20px;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+      }
+      h2 {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+      form {
+        background-color: white;
+        color: black;
+        width: 70vw;
+        padding: 40px;
+        border-radius: 30px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-items: center;
+        flex-wrap: wrap;
+      }
+      form select,
+      form input {
+        flex: 1;
+        min-width: 150px;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        gap: 20px;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+      select,
+      input {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        font-size: 1rem;
+        width: 100%;
+      }
+      .field {
+        flex: 1;
+      }
+      .btn-search {
+        margin: auto;
+      }
+      .btn-search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+          to right,
+          rgb(252, 213, 71),
+          rgb(185, 45, 228)
+        );
+        width: 10rem;
+        height: 2.5rem;
+        color: white;
+        border-radius: 10px;
+        margin-top: 10px;
+        border: none;
+        position: relative;
+        z-index: 1;
+        transition: all 0.4s ease;
+      }
+      button::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to left,
+          rgb(203, 165, 29),
+          rgb(158, 57, 189)
+        );
+        opacity: 0;
+        transition: all 0.4s ease;
+        z-index: -1;
+        border-radius: 10px;
+      }
+      button:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+      button:hover::after {
+        opacity: 1;
+      }
+
+      .book-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, rgb(252, 213, 71), rgb(185, 45, 228));
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 1;
+        margin-top: 10px;
+        width: 8rem;
+      }
+      .book-btn::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to left, rgb(203, 165, 29), rgb(158, 57, 189));
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: -1;
+        border-radius: 8px;
+      }
+      .book-btn:hover::after {
+        opacity: 1;
+      }
+      .book-btn:hover {
+        transform: scale(1.05);
+      }
+
+      .results {
+        background-color: white;
+        color: black;
+        width: 70vw;
+        border-radius: 20px;
+        padding: 30px;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+      .result-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border: 1px solid lightgray;
+        border-radius: 15px;
+        padding: 20px;
+      }
+      .result-card img {
+        width: 150px;
+        height: 100px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+      .result-info {
+        display: flex;
+        flex-direction: column;
+      }
+      .result-info h3 {
+        margin-bottom: 10px;
+      }
+      .price {
+        font-weight: bold;
+        color: rgb(250, 158, 27);
+        font-size: 1.2rem;
+      }
+      .not-found {
+        background-color: white;
+        color: black;
+        width: 70vw;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        margin-top: 40px;
+      }
+      .copyright {
+        background-color: black;
+        color: white;
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button  a{
+        padding: 0;
+        margin: 0;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="color">
+      <div class="wrapper-nav">
+        <nav class="nav">
+          <div class="agency-info">
+            <img class="logo" src="../img/logo.png" alt="logo" />
+            <h1>WANDERLY</h1>
+          </div>
+          <div class="nav-btns">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="./offers.html">Offers</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+              <li><a href="./about.html">About</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <h2>Find Your Perfect Trip</h2>
+      <form>
+        <select id="service" name="service" required>
+          <option value="">--Select Service--</option>
+          <option>Flight</option>
+          <option>Hotel</option>
+          <option>Car Rental</option>
+          <option>Cruise</option>
+          <option>Activity</option>
+        </select>
+
+        <input type="text" id="destination" placeholder="Enter destination" required />
+        <input type="date" id="date" required />
+        <input type="time" id="time" required />
+
+        <button type="submit" class="btn-search">Search</button>
+      </form>
+
+      <section class="results">
+        <div class="result-card">
+          <img src="../img/offer_1.jpg" alt="Greece" />
+          <div class="result-info">
+            <h3>Flight to Greece</h3>
+            <p>Enjoy a comfortable journey with Wanderly Airlines. Direct flight and amazing views.</p>
+            <p class="price">$120</p>
+            <button class="book-btn"><a href="./booking.html">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <img src="../img/offer_2.jpg" alt="Turkey Hills" />
+          <div class="result-info">
+            <h3>Hotel in Turkey Hills</h3>
+            <p>Luxury stay with complimentary breakfast and mountain views.</p>
+            <p class="price">$90 per night</p>
+            <button class="book-btn"><a href="./booking.html">Book Now</a></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="not-found">
+        <h3>No other results available at this moment.</h3>
+      </section>
+    </main>
+
+    <div class="copyright">
+      <h3>©️ All Rights Reserved</h3>
+    </div>
+  </body>
+</html>

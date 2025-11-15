@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Offers | Wanderly</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: #f9f9f9;
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background-color: rgba(54, 19, 84, 0.9);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+      }
+      .navbar .logo img {
+        height: 50px;
+        margin-right: 10px;
+      }
+      h1 {
+        color: white;
+      }
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+      }
+      .navbar li a:hover {
+        text-decoration: underline;
+      }
+      .hero {
+        position: relative;
+        background: url('../img/offer-bg.jpg') center/cover no-repeat;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+      }
+      .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 1;
+      }
+      .hero h1 {
+        position: relative;
+        z-index: 2;
+        font-size: 3rem;
+        padding: 20px 40px;
+        border-radius: 15px;
+      }
+      .offers-section {
+        width: 90%;
+        max-width: 1200px;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+      .offer {
+        display: flex;
+        gap: 20px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+      .offer:hover {
+        transform: translateY(-5px);
+      }
+      .offer img {
+        width: 300px;
+        object-fit: cover;
+      }
+      .offer-content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .offer-content h2 {
+        font-size: 2rem;
+        color: rgb(203, 165, 29);
+        margin-bottom: 10px;
+      }
+      .offer-content p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #555;
+      }
+      .cta {
+        margin: 60px auto;
+        padding: 40px;
+        text-align: center;
+        background: linear-gradient(to right, rgb(158, 57, 189), rgb(203, 165, 29));
+        /* border-radius: 20px; */
+        color: white;
+      }
+      .cta h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      .cta button {
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        background-color: white;
+        color: rgb(158, 57, 189);
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .cta button:hover {
+       transform: scale(1.1)
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <img src="../img/logo.png" alt="Wanderly Logo" />
+        <h1>WANDERLY</h1>
+      </div>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./offers.html">Offers</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./about.html">About</a></li>
+      </ul>
+    </div>
+    <div class="hero">
+      <div class="overlay"></div>
+      <h1>Our Exclusive Offers</h1>
+    </div>
+    <div class="offers-section">
+      <div class="offer">
+        <img src="../img/offer_1.jpg" alt="Offer 1" />
+        <div class="offer-content">
+          <h2>$499</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi fugit neque consectetur voluptatem nulla voluptas est possimus. Sapiente non id dolorem quidem numquam corrupti fugit doloribus, dolore, iusto ducimus optio?</p>
+        </div>
+      </div>
+      <div class="offer">
+        <img src="../img/offer_2.jpg" alt="Offer 2" />
+        <div class="offer-content">
+          <h2>$699</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi fugit neque consectetur voluptatem nulla voluptas est possimus. Sapiente non id dolorem quidem numquam corrupti fugit doloribus, dolore, iusto ducimus optio?</p>
+        </div>
+      </div>
+      <div class="offer">
+        <img src="../img/offer_3.jpg" alt="Offer 3" />
+        <div class="offer-content">
+          <h2>$799</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi fugit neque consectetur voluptatem nulla voluptas est possimus. Sapiente non id dolorem quidem numquam corrupti fugit doloribus, dolore, iusto ducimus optio?</p>
+        </div>
+      </div>
+      <div class="offer">
+        <img src="../img/offer_4.jpg" alt="Offer 4" />
+        <div class="offer-content">
+          <h2>$999</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi fugit neque consectetur voluptatem nulla voluptas est possimus. Sapiente non id dolorem quidem numquam corrupti fugit doloribus, dolore, iusto ducimus optio?</p>
+        </div>
+      </div>
+      
+    </div>
+    <div class="cta">
+      <h2>Grab these offers before they expire!</h2>
+      <button>Book Now</button>
+    </div>
+  </body>
+</html>

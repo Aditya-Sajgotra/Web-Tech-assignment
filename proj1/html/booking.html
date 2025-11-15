@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book a Trip | Wanderly</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      body {
+        background: linear-gradient(to right, rgb(203, 165, 29),
+          rgb(158, 57, 189));
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      h1{
+        color: white;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background-color: rgba(54, 19, 84, 0.9);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+      }
+      .navbar .logo img {
+        height: 50px;
+        margin-right: 10px;
+      }
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+      }
+      .navbar li a:hover {
+        text-decoration: underline;
+      }
+      .booking-section {
+        width: 90%;
+        max-width: 1000px;
+        margin: 50px auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .booking-section h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: rgb(158, 57, 189);
+      }
+      .booking-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .booking-form label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .booking-form input,
+      .booking-form select {
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .booking-form button {
+        width: 200px;
+        margin: auto;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(
+          to right,
+          rgb(203, 165, 29),
+          rgb(158, 57, 189)
+        );
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      .booking-form button:hover {
+        opacity: 0.9;
+      }
+      .booking-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #fafafa;
+        margin-bottom: 15px;
+      }
+      .booking-row input,
+      .booking-row select {
+        flex: 1;
+        min-width: 150px;
+      }
+      .footer {
+        text-align: center;
+        margin-top: 50px;
+        padding: 30px;
+        background-color: rgb(235, 235, 235);
+      }
+      h3 {
+        margin-top: 20px;
+        color: rgb(158, 57, 189);
+      }
+      button {
+        position: relative;
+        z-index: 1;
+      }
+      button::after {
+        content: "";
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to left,
+          rgb(203, 165, 29),
+          rgb(158, 57, 189)
+        );
+        opacity: 0;
+        position: absolute;
+        transition: all 0.4s ease;
+        z-index: -1;
+        border-radius: 20px;
+      }
+      button:hover::after {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <img src="../img/logo.png" alt="Wanderly Logo" />
+        <h1>WANDERLY</h1>
+      </div>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./offers.html">Offers</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="./about.html">About</a></li>
+      </ul>
+    </div>
+
+    <div class="booking-section">
+      <h2>Book Your Trip</h2>
+      <form class="booking-form" action="booking.php" method="post">
+        <h3>Hotel Booking</h3>
+        <div class="booking-row">
+          <input type="text" name="hotelGuestName" placeholder="Guest Name" />
+          <input type="email" name="hotelGuestEmail" placeholder="Email" />
+          <input type="text" name="hotelName" placeholder="Hotel Name" />
+          <input type="date" name="checkIn" placeholder="Check-in" />
+          <input type="date" name="checkOut" placeholder="Check-out" />
+          <select name="rooms">
+            <option value="" disabled selected>Rooms</option>
+            <option value="1">1 Room</option>
+            <option value="2">2 Rooms</option>
+            <option value="3">3 Rooms</option>
+          </select>
+        </div>
+
+        <h3>Flight Booking</h3>
+        <div class="booking-row">
+          <input type="text" name="departure" placeholder="Departure" />
+          <input type="text" name="destination" placeholder="Destination" />
+          <input type="date" name="departDate" />
+          <input
+            type="time"
+            name="DepartTime"
+            placeholder="" />
+          <input
+            type="number"
+            name="passengers"
+            placeholder="Passengers"
+            min="1" />
+          <select name="flightClass">
+            <option value="economy">Economy</option>
+            <option value="business">Business</option>
+            <option value="first">First Class</option>
+          </select>
+        </div>
+
+        <h3>Cruise Booking</h3>
+        <div class="booking-row">
+          <input type="text" name="shipName" placeholder="Cruise Ship Name" />
+          <input
+            type="text"
+            name="departurePort"
+            placeholder="Departure Port" />
+          <input type="date" name="cruiseDepartDate" />
+          <input type="date" name="cruiseReturnDate" />
+          <input
+            type="number"
+            name="cruisePassengers"
+            placeholder="Passengers"
+            min="1" />
+          <select name="cabinType">
+            <option value="inside">Inside</option>
+            <option value="oceanview">Ocean View</option>
+            <option value="balcony">Balcony</option>
+            <option value="suite">Suite</option>
+          </select>
+        </div>
+
+        <h3>Activity Booking</h3>
+        <div class="booking-row">
+          <input type="text" name="activityName" placeholder="Activity Name" />
+          <input type="text" name="activityLocation" placeholder="Location" />
+          <input type="date" name="activityDate" />
+          <input
+            type="number"
+            name="activityParticipants"
+            placeholder="Participants"
+            min="1" />
+          <input
+            type="text"
+            name="specialRequests"
+            placeholder="Special Requests" />
+        </div>
+
+        <h3>Car Rental Booking</h3>
+        <div class="booking-row">
+          <input
+            type="text"
+            name="pickupLocation"
+            placeholder="Pickup Location" />
+          <input
+            type="text"
+            name="dropoffLocation"
+            placeholder="Drop-off Location" />
+          <input type="date" name="pickupDate" />
+          <input type="time" name="pickupTime" />
+          <input
+            type="number"
+            name="carPassengers"
+            placeholder="Passengers"
+            min="1" />
+          <select name="carType">
+            <option value="economy">Economy</option>
+            <option value="compact">Compact</option>
+            <option value="suv">SUV</option>
+            <option value="luxury">Luxury</option>
+          </select>
+        </div>
+
+        <button type="submit">Submit Booking</button>
+      </form>
+    </div>
+
+    <div class="footer">
+      <p>©️ Wanderly Travel Agency | All Rights Reserved</p>
+    </div>
+  </body>
+</html>
