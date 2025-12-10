@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  web:
+    image: php:8.2-apache
+    container_name: web_server
+    ports:
+      - "8080:80"
+    volumes:
+      - ./code:/var/www/html
+    depends_on:
+      - db   # ensures db starts before web
+
+  db:
+    image: mysql:8.0
+    container_name: my_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+    ports:
+      - "8000:3306"   # optional, if you want host access
